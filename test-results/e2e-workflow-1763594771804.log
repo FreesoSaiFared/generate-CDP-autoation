@@ -1,0 +1,24 @@
+{"timestamp":"2025-11-19T23:26:11.804Z","level":"INFO","message":"Test started: 2025-11-19T23:26:11.774Z","data":null}
+{"timestamp":"2025-11-19T23:26:11.806Z","level":"INFO","message":"Step: Checking mitmproxy installation...","data":null}
+{"timestamp":"2025-11-19T23:26:12.295Z","level":"INFO","message":"Step: Checking Integuru installation...","data":null}
+{"timestamp":"2025-11-19T23:26:12.297Z","level":"INFO","message":"Step: Validating Gmail credentials...","data":null}
+{"timestamp":"2025-11-19T23:26:12.298Z","level":"INFO","message":"Phase 1 (Environment Setup): FAILED","data":{"duration":522,"checks":5,"errors":2}}
+{"timestamp":"2025-11-19T23:26:12.298Z","level":"INFO","message":"Step: Starting network capture for Gmail login...","data":null}
+{"timestamp":"2025-11-19T23:26:12.298Z","level":"INFO","message":"Step: Executing MCP tool: capture-and-analyze","data":null}
+{"timestamp":"2025-11-19T23:26:12.299Z","level":"INFO","message":"Tool execution: capture-and-analyze","data":{"duration":1,"success":true}}
+{"timestamp":"2025-11-19T23:26:12.299Z","level":"INFO","message":"Phase 2 (Capture and Analyze): PASSED","data":{"duration":1,"checks":0,"errors":0}}
+{"timestamp":"2025-11-19T23:26:12.299Z","level":"INFO","message":"Step: Executing Gmail login optimally...","data":null}
+{"timestamp":"2025-11-19T23:26:12.299Z","level":"INFO","message":"Step: Executing MCP tool: execute-optimally","data":null}
+{"timestamp":"2025-11-19T23:26:12.299Z","level":"INFO","message":"Tool execution: execute-optimally","data":{"duration":0,"success":true}}
+{"timestamp":"2025-11-19T23:26:12.299Z","level":"INFO","message":"Phase 3 (Execute Optimally): PASSED","data":{"duration":0,"checks":0,"errors":0}}
+{"timestamp":"2025-11-19T23:26:12.299Z","level":"INFO","message":"Step: Starting session recording...","data":null}
+{"timestamp":"2025-11-19T23:26:12.299Z","level":"INFO","message":"Step: Executing MCP tool: record-session","data":null}
+{"timestamp":"2025-11-19T23:26:12.299Z","level":"INFO","message":"Tool execution: record-session","data":{"duration":0,"success":true}}
+{"timestamp":"2025-11-19T23:26:12.300Z","level":"INFO","message":"Phase 4 (Record Session): PASSED","data":{"duration":1,"checks":0,"errors":0}}
+{"timestamp":"2025-11-19T23:26:12.300Z","level":"INFO","message":"Step: Replaying recorded session...","data":null}
+{"timestamp":"2025-11-19T23:26:12.300Z","level":"INFO","message":"Step: Executing MCP tool: replay-automation","data":null}
+{"timestamp":"2025-11-19T23:26:12.300Z","level":"INFO","message":"Tool execution: replay-automation","data":{"duration":0,"success":true}}
+{"timestamp":"2025-11-19T23:26:12.300Z","level":"INFO","message":"Phase 5 (Replay Automation): PASSED","data":{"duration":0,"checks":0,"errors":0}}
+{"timestamp":"2025-11-19T23:26:12.302Z","level":"INFO","message":"HTML report generated: e2e-workflow-report-1763594772302.html","data":null}
+{"timestamp":"2025-11-19T23:26:12.302Z","level":"INFO","message":"Text summary generated: e2e-workflow-summary-1763594772302.txt","data":null}
+{"timestamp":"2025-11-19T23:26:12.303Z","level":"INFO","message":"Report generated: test-results/e2e-workflow-report-1763594772300.json","data":null}

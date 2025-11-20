@@ -1,0 +1,13 @@
+{
+  "startTime": "2025-11-19T22:24:24.473Z",
+  "endTime": "2025-11-19T22:24:24.476Z",
+  "duration": 3,
+  "success": false,
+  "patchingMode": "addBinding",
+  "detectionAttempts": 0,
+  "errors": [
+    "Browser initialization failed: Could not find Chrome (ver. 136.0.7103.49). This can occur if either\n 1. you did not perform an installation before running the script (e.g. `npx puppeteer browsers install chrome`) or\n 2. your cache path is incorrectly configured (which is: /home/ned/.cache/puppeteer).\nFor (2), check out our guide on configuring puppeteer at https://pptr.dev/guides/configuration.",
+    "Test execution failed: Browser initialization failed"
+  ],
+  "tests": []
+}

@@ -1,0 +1,15 @@
+{
+  "startTime": "2025-11-19T22:25:22.468Z",
+  "endTime": "2025-11-19T22:25:25.789Z",
+  "duration": 3321,
+  "success": false,
+  "extensionLoaded": false,
+  "cdpFunctional": false,
+  "stateCaptureWorking": false,
+  "debuggerAPIWorking": false,
+  "errors": [
+    "Browser initialization failed: Extension target not found",
+    "Test execution failed: Browser initialization failed"
+  ],
+  "tests": []
+}

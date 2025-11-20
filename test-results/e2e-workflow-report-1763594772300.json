@@ -1,0 +1,457 @@
+{
+  "testInfo": {
+    "name": "E2E Workflow Test",
+    "timestamp": "2025-11-19T23:26:12.300Z",
+    "duration": 525,
+    "version": "1.0.0"
+  },
+  "results": {
+    "phase1": {
+      "checks": [
+        {
+          "name": "MCP Server Startup",
+          "status": "passed",
+          "duration": 0
+        },
+        {
+          "name": "Chrome Stealth Configuration",
+          "status": "failed",
+          "duration": 30
+        },
+        {
+          "name": "mitmproxy Installation",
+          "status": "passed",
+          "details": {
+            "available": true,
+            "version": "Mitmproxy: 11.0.2\nPython:    3.10.12\nOpenSSL:   OpenSSL 3.4.1 11 Feb 2025\nPlatform:  Linux-6.8.0-87-generic-x86_64-with-glibc2.35",
+            "duration": 489
+          },
+          "duration": 489
+        },
+        {
+          "name": "Integuru Installation",
+          "status": "failed",
+          "details": {
+            "available": false,
+            "error": "Integuru not found",
+            "duration": 2
+          },
+          "duration": 2
+        },
+        {
+          "name": "Gmail Credentials",
+          "status": "passed",
+          "details": {
+            "valid": true,
+            "email": {
+              "value": "kijkwijs@gmail.com",
+              "valid": true,
+              "masked": "kij***@gmail.com"
+            },
+            "password": {
+              "valid": true,
+              "length": 11,
+              "strength": {
+                "score": 6,
+                "level": "strong",
+                "feedback": []
+              }
+            },
+            "duration": 1
+          },
+          "duration": 1
+        }
+      ],
+      "success": false,
+      "errors": [
+        "Chrome stealth configuration failed",
+        "Integuru not available"
+      ],
+      "duration": 522
+    },
+    "phase2": {
+      "sessionId": "session-1763594772299",
+      "networkCapture": {
+        "sessionId": "capture-1763594772299",
+        "harFile": "./test-network.har",
+        "requestCount": 15,
+        "domains": [
+          "accounts.google.com",
+          "mail.google.com"
+        ],
+        "duration": 45000
+      },
+      "integuruAnalysis": {
+        "success": true,
+        "confidence": 0.92,
+        "codeGenerated": true,
+        "apiEndpoints": [
+          "https://accounts.google.com/signin"
+        ],
+        "estimatedTime": 3
+      },
+      "modalityChoice": {
+        "modality": "integuru",
+        "confidence": 0.92,
+        "estimatedTimeSeconds": 3,
+        "reasoning": "API patterns simple and well-defined"
+      },
+      "success": true,
+      "errors": [],
+      "duration": 1,
+      "metrics": {
+        "requestCount": 15,
+        "domains": [
+          "accounts.google.com",
+          "mail.google.com"
+        ],
+        "captureTime": 45,
+        "analysisTime": 3
+      }
+    },
+    "phase3": {
+      "executionId": "exec-1763594772299",
+      "modalityUsed": "integuru",
+      "executionResult": {
+        "message": "Gmail login completed successfully"
+      },
+      "success": true,
+      "errors": [],
+      "duration": 0,
+      "metrics": {
+        "executionTime": 2.8,
+        "confidence": 0.92,
+        "screenshots": 0,
+        "detectionAttempts": 0
+      }
+    },
+    "phase4": {
+      "sessionId": "record-1763594772299",
+      "recordingDuration": 45000,
+      "actionsRecorded": 12,
+      "screenshotsTaken": 3,
+      "networkRequests": 15,
+      "success": true,
+      "errors": [],
+      "duration": 1
+    },
+    "phase5": {
+      "replayId": "replay-1763594772300",
+      "sessionId": "record-1763594772299",
+      "actionsReplayed": 12,
+      "totalActions": 12,
+      "executionTime": 42.5,
+      "screenshotsTaken": 3,
+      "errors": [],
+      "success": true,
+      "duration": 0,
+      "fidelity": {
+        "actionAccuracy": 1,
+        "timingAccuracy": 0.95,
+        "visualAccuracy": 0.9
+      }
+    },
+    "overall": {
+      "success": false,
+      "duration": 525,
+      "phasesCompleted": 5,
+      "phasesPassed": 4,
+      "successCriteria": {
+        "gmailLoginSuccess": true,
+        "detectionBypassRate": 1,
+        "executionSpeedImprovement": 16.071428571428573,
+        "modalityOptimizerAccuracy": 0.92
+      },
+      "summary": {
+        "totalPhases": 5,
+        "passedPhases": 4,
+        "failedPhases": 1,
+        "criticalErrors": [
+          "Chrome stealth configuration failed",
+          "Integuru not available"
+        ]
+      }
+    }
+  },
+  "successCriteria": {
+    "met": {
+      "gmailLoginSuccess": true,
+      "detectionBypassRate": 1,
+      "executionSpeedImprovement": 16.071428571428573,
+      "modalityOptimizerAccuracy": 0.92
+    },
+    "required": {
+      "gmailLoginSuccess": true,
+      "detectionBypassRate": 0.95,
+      "executionSpeedImprovement": 8,
+      "modalityOptimizerAccuracy": 0.85
+    }
+  },
+  "summary": {
+    "overallSuccess": false,
+    "criteriaMet": 4,
+    "totalCriteria": 4
+  },
+  "testExecution": {
+    "startTime": "2025-11-19T23:26:11.774Z",
+    "endTime": "2025-11-19T23:26:12.300Z",
+    "phases": [
+      {
+        "number": 1,
+        "name": "Environment Setup",
+        "timestamp": "2025-11-19T23:26:12.298Z",
+        "success": false,
+        "duration": 522,
+        "checks": [
+          {
+            "name": "MCP Server Startup",
+            "status": "passed",
+            "duration": 0
+          },
+          {
+            "name": "Chrome Stealth Configuration",
+            "status": "failed",
+            "duration": 30
+          },
+          {
+            "name": "mitmproxy Installation",
+            "status": "passed",
+            "details": {
+              "available": true,
+              "version": "Mitmproxy: 11.0.2\nPython:    3.10.12\nOpenSSL:   OpenSSL 3.4.1 11 Feb 2025\nPlatform:  Linux-6.8.0-87-generic-x86_64-with-glibc2.35",
+              "duration": 489
+            },
+            "duration": 489
+          },
+          {
+            "name": "Integuru Installation",
+            "status": "failed",
+            "details": {
+              "available": false,
+              "error": "Integuru not found",
+              "duration": 2
+            },
+            "duration": 2
+          },
+          {
+            "name": "Gmail Credentials",
+            "status": "passed",
+            "details": {
+              "valid": true,
+              "email": {
+                "value": "kijkwijs@gmail.com",
+                "valid": true,
+                "masked": "kij***@gmail.com"
+              },
+              "password": {
+                "valid": true,
+                "length": 11,
+                "strength": {
+                  "score": 6,
+                  "level": "strong",
+                  "feedback": []
+                }
+              },
+              "duration": 1
+            },
+            "duration": 1
+          }
+        ],
+        "errors": [
+          "Chrome stealth configuration failed",
+          "Integuru not available"
+        ],
+        "metrics": {}
+      },
+      {
+        "number": 2,
+        "name": "Capture and Analyze",
+        "timestamp": "2025-11-19T23:26:12.299Z",
+        "success": true,
+        "duration": 1,
+        "checks": [],
+        "errors": [],
+        "metrics": {
+          "requestCount": 15,
+          "domains": [
+            "accounts.google.com",
+            "mail.google.com"
+          ],
+          "captureTime": 45,
+          "analysisTime": 3
+        }
+      },
+      {
+        "number": 3,
+        "name": "Execute Optimally",
+        "timestamp": "2025-11-19T23:26:12.299Z",
+        "success": true,
+        "duration": 0,
+        "checks": [],
+        "errors": [],
+        "metrics": {
+          "executionTime": 2.8,
+          "confidence": 0.92,
+          "screenshots": 0,
+          "detectionAttempts": 0
+        }
+      },
+      {
+        "number": 4,
+        "name": "Record Session",
+        "timestamp": "2025-11-19T23:26:12.300Z",
+        "success": true,
+        "duration": 1,
+        "checks": [],
+        "errors": [],
+        "metrics": {}
+      },
+      {
+        "number": 5,
+        "name": "Replay Automation",
+        "timestamp": "2025-11-19T23:26:12.300Z",
+        "success": true,
+        "duration": 0,
+        "checks": [],
+        "errors": [],
+        "metrics": {}
+      }
+    ],
+    "steps": [
+      {
+        "name": "Starting MCP server...",
+        "timestamp": "2025-11-19T23:26:11.776Z",
+        "details": null
+      },
+      {
+        "name": "Verifying Chrome stealth configuration...",
+        "timestamp": "2025-11-19T23:26:11.776Z",
+        "details": null
+      },
+      {
+        "name": "Checking mitmproxy installation...",
+        "timestamp": "2025-11-19T23:26:11.806Z",
+        "details": null
+      },
+      {
+        "name": "Checking Integuru installation...",
+        "timestamp": "2025-11-19T23:26:12.295Z",
+        "details": null
+      },
+      {
+        "name": "Validating Gmail credentials...",
+        "timestamp": "2025-11-19T23:26:12.297Z",
+        "details": null
+      },
+      {
+        "name": "Starting network capture for Gmail login...",
+        "timestamp": "2025-11-19T23:26:12.298Z",
+        "details": null
+      },
+      {
+        "name": "Executing MCP tool: capture-and-analyze",
+        "timestamp": "2025-11-19T23:26:12.298Z",
+        "details": null
+      },
+      {
+        "name": "Executing Gmail login optimally...",
+        "timestamp": "2025-11-19T23:26:12.299Z",
+        "details": null
+      },
+      {
+        "name": "Executing MCP tool: execute-optimally",
+        "timestamp": "2025-11-19T23:26:12.299Z",
+        "details": null
+      },
+      {
+        "name": "Starting session recording...",
+        "timestamp": "2025-11-19T23:26:12.299Z",
+        "details": null
+      },
+      {
+        "name": "Executing MCP tool: record-session",
+        "timestamp": "2025-11-19T23:26:12.299Z",
+        "details": null
+      },
+      {
+        "name": "Replaying recorded session...",
+        "timestamp": "2025-11-19T23:26:12.300Z",
+        "details": null
+      },
+      {
+        "name": "Executing MCP tool: replay-automation",
+        "timestamp": "2025-11-19T23:26:12.300Z",
+        "details": null
+      }
+    ],
+    "errors": [],
+    "metrics": {
+      "capture-and-analyze": [
+        {
+          "tool": "capture-and-analyze",
+          "input": {
+            "taskDescription": "Gmail login with email kijkwijs@gmail.com",
+            "timeoutSeconds": 60,
+            "captureLevel": 3,
+            "includeScreenshots": true
+          },
+          "output": "{\n  \"sessionId\": \"session-1763594772299\",\n  \"status\": \"success\",\n  \"taskDescription\": \"Gmail login with email kijkwijs@gmail.com\",\n  \"networkCapture\": {\n    \"sessionId\": \"capture-1763594772299\",\n    \"harFile\": \"./test-network.har\",\n    \"requestCount\": 15,\n    \"domains\": [\n      \"accounts.google.com\",\n      \"mail.google.com\"\n    ],\n    \"duration\": 45000\n  },\n  \"integuruAnalysis\": {\n    \"success\": true,\n    \"confidence\": 0.92,\n    \"codeGenerated\": true,\n    \"apiEndpoints\": [\n      \"https://accounts.google.com/signin\"\n    ],\n    \"estimatedTime\": 3\n  },\n  \"recommendedModality\": {\n    \"modality\": \"integuru\",\n    \"confidence\": 0.92,\n    \"estimatedTimeSeconds\": 3,\n    \"reasoning\": \"API patterns simple and well-defined\"\n  }\n}",
+          "error": null,
+          "duration": 1,
+          "timestamp": "2025-11-19T23:26:12.299Z"
+        }
+      ],
+      "execute-optimally": [
+        {
+          "tool": "execute-optimally",
+          "input": {
+            "taskDescription": "Gmail login with email kijkwijs@gmail.com",
+            "sessionId": "session-1763594772299",
+            "forceModality": null
+          },
+          "output": "{\n  \"executionId\": \"exec-1763594772299\",\n  \"status\": \"success\",\n  \"taskDescription\": \"Gmail login with email kijkwijs@gmail.com\",\n  \"modalityUsed\": \"integuru\",\n  \"executionTime\": 2.8,\n  \"confidence\": 0.92,\n  \"output\": {\n    \"message\": \"Gmail login completed successfully\"\n  },\n  \"screenshots\": []\n}",
+          "error": null,
+          "duration": 0,
+          "timestamp": "2025-11-19T23:26:12.299Z"
+        }
+      ],
+      "record-session": [
+        {
+          "tool": "record-session",
+          "input": {
+            "taskDescription": "Gmail login recording for replay",
+            "captureLevel": 3,
+            "includeScreenshots": true,
+            "autoStop": true,
+            "timeoutMinutes": 2
+          },
+          "output": "{\n  \"sessionId\": \"record-1763594772299\",\n  \"status\": \"success\",\n  \"taskDescription\": \"Gmail login recording for replay\",\n  \"recordingDuration\": 45000,\n  \"actionsRecorded\": 12,\n  \"networkRequests\": 15,\n  \"screenshotsTaken\": 3\n}",
+          "error": null,
+          "duration": 0,
+          "timestamp": "2025-11-19T23:26:12.299Z"
+        }
+      ],
+      "replay-automation": [
+        {
+          "tool": "replay-automation",
+          "input": {
+            "sessionId": "record-1763594772299",
+            "speedMultiplier": 1,
+            "skipScreenshots": false,
+            "dryRun": false
+          },
+          "output": "{\n  \"replayId\": \"replay-1763594772300\",\n  \"sessionId\": \"record-1763594772299\",\n  \"status\": \"success\",\n  \"actionsReplayed\": 12,\n  \"totalActions\": 12,\n  \"executionTime\": 42.5,\n  \"screenshotsTaken\": 3,\n  \"errors\": []\n}",
+          "error": null,
+          "duration": 0,
+          "timestamp": "2025-11-19T23:26:12.300Z"
+        }
+      ]
+    },
+    "screenshots": []
+  },
+  "reportGeneration": {
+    "timestamp": "2025-11-19T23:26:12.300Z",
+    "fileName": "e2e-workflow-report-1763594772300.json",
+    "version": "1.0.0"
+  }
+}

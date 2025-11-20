@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "CDP Stealth Extension",
+  "version": "1.0.0",
+  "description": "Chrome DevTools Protocol extension for browser control without exposing remote debugging port",
+  
+  "permissions": [
+    "debugger",
+    "storage",
+    "cookies",
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CDP Stealth",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["injected-script.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

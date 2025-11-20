@@ -1,0 +1,22 @@
+{"timestamp":"2025-11-19T23:25:29.892Z","level":"INFO","message":"Test started: 2025-11-19T23:25:29.864Z","data":null}
+{"timestamp":"2025-11-19T23:25:29.894Z","level":"INFO","message":"Step: Checking mitmproxy installation...","data":null}
+{"timestamp":"2025-11-19T23:25:30.535Z","level":"INFO","message":"Step: Checking Integuru installation...","data":null}
+{"timestamp":"2025-11-19T23:25:30.539Z","level":"INFO","message":"Step: Validating Gmail credentials...","data":null}
+{"timestamp":"2025-11-19T23:25:30.540Z","level":"INFO","message":"Phase 1 (Environment Setup): FAILED","data":{"duration":675,"checks":5,"errors":2}}
+{"timestamp":"2025-11-19T23:25:30.540Z","level":"INFO","message":"Step: Starting network capture for Gmail login...","data":null}
+{"timestamp":"2025-11-19T23:25:30.540Z","level":"INFO","message":"Step: Executing MCP tool: capture-and-analyze","data":null}
+{"timestamp":"2025-11-19T23:25:30.541Z","level":"INFO","message":"Tool execution: capture-and-analyze","data":{"duration":1,"success":true}}
+{"timestamp":"2025-11-19T23:25:30.541Z","level":"INFO","message":"Phase 2 (Capture and Analyze): PASSED","data":{"duration":1,"checks":0,"errors":0}}
+{"timestamp":"2025-11-19T23:25:30.541Z","level":"INFO","message":"Step: Executing Gmail login optimally...","data":null}
+{"timestamp":"2025-11-19T23:25:30.541Z","level":"INFO","message":"Step: Executing MCP tool: execute-optimally","data":null}
+{"timestamp":"2025-11-19T23:25:30.541Z","level":"INFO","message":"Tool execution: execute-optimally","data":{"duration":0,"success":true}}
+{"timestamp":"2025-11-19T23:25:30.541Z","level":"INFO","message":"Phase 3 (Execute Optimally): PASSED","data":{"duration":0,"checks":0,"errors":0}}
+{"timestamp":"2025-11-19T23:25:30.541Z","level":"INFO","message":"Step: Starting session recording...","data":null}
+{"timestamp":"2025-11-19T23:25:30.541Z","level":"INFO","message":"Step: Executing MCP tool: record-session","data":null}
+{"timestamp":"2025-11-19T23:25:30.541Z","level":"INFO","message":"Tool execution: record-session","data":{"duration":0,"success":true}}
+{"timestamp":"2025-11-19T23:25:30.542Z","level":"INFO","message":"Phase 4 (Record Session): PASSED","data":{"duration":1,"checks":0,"errors":0}}
+{"timestamp":"2025-11-19T23:25:30.542Z","level":"INFO","message":"Step: Replaying recorded session...","data":null}
+{"timestamp":"2025-11-19T23:25:30.542Z","level":"INFO","message":"Step: Executing MCP tool: replay-automation","data":null}
+{"timestamp":"2025-11-19T23:25:30.542Z","level":"INFO","message":"Tool execution: replay-automation","data":{"duration":0,"success":true}}
+{"timestamp":"2025-11-19T23:25:30.542Z","level":"INFO","message":"Phase 5 (Replay Automation): PASSED","data":{"duration":0,"checks":0,"errors":0}}
+{"timestamp":"2025-11-19T23:25:30.544Z","level":"ERROR","message":"Failed to generate report: Cannot read properties of undefined (reading 'toFixed')","data":null}

@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E2E Workflow Test Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .success { color: #28a745; }
+        .failure { color: #dc3545; }
+        .warning { color: #ffc107; }
+        .info { color: #17a2b8; }
+        
+        .phase {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            background-color: #f8f9fa;
+        }
+        .phase.success { border-left-color: #28a745; }
+        .phase.failure { border-left-color: #dc3545; }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .metric {
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .metric-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+        .check-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .check-item:last-child {
+            border-bottom: none;
+        }
+        
+        .error-list {
+            background-color: #f8d7da;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #007bff;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #007bff;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            font-size: 0.8em;
+            font-weight: 600;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+        .badge.success { background-color: #d4edda; color: #155724; }
+        .badge.failure { background-color: #f8d7da; color: #721c24; }
+        .badge.warning { background-color: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>E2E Workflow Test</h1>
+            <p>Generated: 2025-11-19T23:26:12.300Z</p>
+            <p>Duration: 0.53s</p>
+            <div class="badge failure">
+                FAILURE
+            </div>
+        </div>
+        
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-value success">
+                    4/4
+                </div>
+                <div class="metric-label">Success Criteria Met</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value failure">
+                    undefined
+                </div>
+                <div class="metric-label">Phases Passed</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value failure">
+                    undefined
+                </div>
+                <div class="metric-label">Phases Failed</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value info">
+                    0.5s
+                </div>
+                <div class="metric-label">Total Duration</div>
+            </div>
+        </div>
+        
+        <h2>Success Criteria</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Required</th>
+                    <th>Achieved</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gmail Login Success</td>
+                    <td>True</td>
+                    <td>undefined</td>
+                    <td class="failure">
+                        ❌
+                    </td>
+                </tr>
+                <tr>
+                    <td>Detection Bypass Rate</td>
+                    <td>≥95%</td>
+                    <td>NaN%</td>
+                    <td class="failure">
+                        ❌
+                    </td>
+                </tr>
+                <tr>
+                    <td>Execution Speed Improvement</td>
+                    <td>≥8x</td>
+                    <td>0.0x</td>
+                    <td class="failure">
+                        ❌
+                    </td>
+                </tr>
+                <tr>
+                    <td>Modality Optimizer Accuracy</td>
+                    <td>≥85%</td>
+                    <td>NaN%</td>
+                    <td class="failure">
+                        ❌
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Phase Results</h2>
+        <div class="timeline">
+            
+                <div class="timeline-item">
+                    <h3>Phase 1: Environment Setup</h3>
+                    <div class="badge failure">
+                        FAILED
+                    </div>
+                    <p>Duration: 0.52s</p>
+                    
+                        <div class="error-list">
+                            <strong>Errors:</strong>
+                            <ul>
+                                <li>Chrome stealth configuration failed</li><li>Integuru not available</li>
+                            </ul>
+                        </div>
+                    
+                </div>
+            
+                <div class="timeline-item">
+                    <h3>Phase 2: Capture and Analyze</h3>
+                    <div class="badge success">
+                        PASSED
+                    </div>
+                    <p>Duration: 0.00s</p>
+                    
+                </div>
+            
+                <div class="timeline-item">
+                    <h3>Phase 3: Execute Optimally</h3>
+                    <div class="badge success">
+                        PASSED
+                    </div>
+                    <p>Duration: 0.00s</p>
+                    
+                </div>
+            
+                <div class="timeline-item">
+                    <h3>Phase 4: Record Session</h3>
+                    <div class="badge success">
+                        PASSED
+                    </div>
+                    <p>Duration: 0.00s</p>
+                    
+                </div>
+            
+                <div class="timeline-item">
+                    <h3>Phase 5: Replay Automation</h3>
+                    <div class="badge success">
+                        PASSED
+                    </div>
+                    <p>Duration: 0.00s</p>
+                    
+                </div>
+            
+        </div>
+        
+        
+        
+        <div class="footer">
+            <p><em>Report generated by CDP Automation Test Suite v1.0.0</em></p>
+        </div>
+    </div>
+</body>
+</html>

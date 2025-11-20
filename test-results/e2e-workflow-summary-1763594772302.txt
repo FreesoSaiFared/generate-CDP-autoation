@@ -1,0 +1,65 @@
+
+═══════════════════════════════════════════════════════════
+E2E Workflow Test - TEST SUMMARY
+═══════════════════════════════════════════════════════════
+
+Generated: 2025-11-19T23:26:12.300Z
+Duration: 0.53s
+Overall Status: FAILURE ❌
+
+SUCCESS CRITERIA
+───────────────────────────────────────────────────────────────
+✅ Gmail Login Success: undefined
+❌ Detection Bypass Rate: 0.0% (required: ≥95%)
+❌ Execution Speed Improvement: 0.0x (required: ≥8x)
+❌ Modality Optimizer Accuracy: 0.0% (required: ≥85%)
+
+Criteria Met: 4/4
+
+PHASE RESULTS
+───────────────────────────────────────────────────────────────
+
+Phase 1: Environment Setup
+  Status: FAILED ❌
+  Duration: 0.52s
+  Checks: 5
+  Errors: 2
+  Errors:
+    - Chrome stealth configuration failed
+    - Integuru not available
+
+Phase 2: Capture and Analyze
+  Status: PASSED ✅
+  Duration: 0.00s
+  Checks: 0
+  Errors: 0
+
+
+Phase 3: Execute Optimally
+  Status: PASSED ✅
+  Duration: 0.00s
+  Checks: 0
+  Errors: 0
+
+
+Phase 4: Record Session
+  Status: PASSED ✅
+  Duration: 0.00s
+  Checks: 0
+  Errors: 0
+
+
+Phase 5: Replay Automation
+  Status: PASSED ✅
+  Duration: 0.00s
+  Checks: 0
+  Errors: 0
+
+
+
+
+
+═══════════════════════════════════════════════════════════
+FINAL SCORE: 4/4 criteria met
+SYSTEM STATUS: NOT READY - CRITICAL ISSUES REMAIN
+═══════════════════════════════════════════════════════════

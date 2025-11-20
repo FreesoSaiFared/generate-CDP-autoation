@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDP Stealth Extension</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>CDP Stealth</h1>
+      <div class="status-indicator">
+        <span id="status-dot" class="status-dot"></span>
+        <span id="status-text">Checking...</span>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Connection Status Section -->
+      <section class="section">
+        <h2>Connection Status</h2>
+        <div class="status-grid">
+          <div class="status-item">
+            <span class="label">Attached Tabs:</span>
+            <span id="attached-count" class="value">0</span>
+          </div>
+          <div class="status-item">
+            <span class="label">Captured States:</span>
+            <span id="states-count" class="value">0</span>
+          </div>
+          <div class="status-item">
+            <span class="label">Extension Version:</span>
+            <span id="version" class="value">1.0.0</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab Management Section -->
+      <section class="section">
+        <h2>Tab Management</h2>
+        <div class="tab-controls">
+          <button id="attach-current" class="btn btn-primary">Attach to Current Tab</button>
+          <button id="detach-current" class="btn btn-secondary">Detach from Current Tab</button>
+        </div>
+        <div id="attached-tabs" class="tabs-list">
+          <h3>Attached Tabs:</h3>
+          <div id="tabs-container" class="tabs-container">
+            <p class="no-tabs">No tabs attached</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- State Management Section -->
+      <section class="section">
+        <h2>State Management</h2>
+        <div class="state-controls">
+          <div class="control-group">
+            <h3>Capture State</h3>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" id="include-cookies" checked>
+                <span>Cookies</span>
+              </label>
+              <label>
+                <input type="checkbox" id="include-localstorage" checked>
+                <span>Local Storage</span>
+              </label>
+              <label>
+                <input type="checkbox" id="include-sessionstorage" checked>
+                <span>Session Storage</span>
+              </label>
+              <label>
+                <input type="checkbox" id="include-indexeddb" checked>
+                <span>IndexedDB</span>
+              </label>
+            </div>
+            <button id="capture-state" class="btn btn-primary">Capture Current State</button>
+          </div>
+          
+          <div class="control-group">
+            <h3>Inject State</h3>
+            <select id="state-select" class="state-select">
+              <option value="">Select captured state...</option>
+            </select>
+            <button id="inject-state" class="btn btn-primary">Inject Selected State</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CDP Command Section -->
+      <section class="section">
+        <h2>CDP Command</h2>
+        <div class="cdp-controls">
+          <div class="input-group">
+            <label for="cdp-method">Method:</label>
+            <input type="text" id="cdp-method" placeholder="e.g., Page.navigate" class="input-field">
+          </div>
+          <div class="input-group">
+            <label for="cdp-params">Parameters (JSON):</label>
+            <textarea id="cdp-params" placeholder='{"url": "https://example.com"}' class="input-field textarea"></textarea>
+          </div>
+          <button id="execute-cdp" class="btn btn-primary">Execute CDP Command</button>
+          <div id="cdp-result" class="result-container">
+            <h4>Result:</h4>
+            <pre id="cdp-output" class="output">No result yet</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Logs Section -->
+      <section class="section">
+        <h2>Activity Log</h2>
+        <div class="log-controls">
+          <button id="clear-logs" class="btn btn-small">Clear Logs</button>
+        </div>
+        <div id="log-container" class="log-container">
+          <div class="log-entry">
+            <span class="timestamp">[00:00:00]</span>
+            <span class="message">Extension initialized</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>CDP Stealth Extension v1.0.0</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

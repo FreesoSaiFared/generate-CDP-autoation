@@ -1,0 +1,203 @@
+{
+  "startTime": "2025-11-19T22:24:42.953Z",
+  "endTime": "2025-11-19T22:24:48.656Z",
+  "duration": 5703,
+  "success": false,
+  "patchingMode": "addBinding",
+  "detectionAttempts": 0,
+  "errors": [
+    "rebrowser-patches installation: {\"packageCheck\":{\"hasPatching\":false,\"error\":\"process is not defined\"},\"puppeteerCheck\":{\"puppeteerAvailable\":false,\"patchedMethods\":[]},\"expectedMode\":\"addBinding\",\"actualMode\":\"addBinding\"}"
+  ],
+  "tests": [
+    {
+      "testId": "addBinding_mode",
+      "name": "addBinding Mode Test",
+      "success": true,
+      "details": {
+        "success": true,
+        "bindingExists": true,
+        "bindingId": "xq2nvzpmc",
+        "runtimeEnabled": false
+      }
+    },
+    {
+      "testId": "detection_after_cdp",
+      "name": "Detection After CDP Commands",
+      "success": true,
+      "details": {
+        "totalTests": 4,
+        "detectionCount": 0,
+        "results": [
+          {
+            "command": "Page.evaluate",
+            "success": true,
+            "duration": 1,
+            "detectionIndicators": [],
+            "detected": false
+          },
+          {
+            "command": "Runtime.evaluate",
+            "success": true,
+            "duration": 1,
+            "detectionIndicators": [],
+            "detected": false
+          },
+          {
+            "command": "DOM.getDocument",
+            "success": true,
+            "duration": 1,
+            "detectionIndicators": [],
+            "detected": false
+          },
+          {
+            "command": "CSS.getComputedStyleForNode",
+            "success": true,
+            "duration": 1,
+            "detectionIndicators": [],
+            "detected": false
+          }
+        ]
+      }
+    },
+    {
+      "testId": "no_runtime_enable_window",
+      "name": "No Runtime.enable Detection Window",
+      "success": true,
+      "details": {
+        "monitoringDuration": 5000,
+        "totalChecks": 50,
+        "detectionEvents": 0,
+        "firstDetection": null,
+        "detectionLog": [
+          {
+            "timestamp": 1763591083753,
+            "elapsed": 100,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          },
+          {
+            "timestamp": 1763591083853,
+            "elapsed": 200,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          },
+          {
+            "timestamp": 1763591083953,
+            "elapsed": 300,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          },
+          {
+            "timestamp": 1763591084053,
+            "elapsed": 400,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          },
+          {
+            "timestamp": 1763591084153,
+            "elapsed": 500,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          },
+          {
+            "timestamp": 1763591084253,
+            "elapsed": 600,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          },
+          {
+            "timestamp": 1763591084353,
+            "elapsed": 700,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          },
+          {
+            "timestamp": 1763591084453,
+            "elapsed": 800,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          },
+          {
+            "timestamp": 1763591084553,
+            "elapsed": 900,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          },
+          {
+            "timestamp": 1763591084653,
+            "elapsed": 1000,
+            "indicators": {
+              "webdriver": false,
+              "chromeRuntime": false,
+              "cdcArray": false,
+              "cdcPromise": false,
+              "cdcSymbol": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "testId": "rebrowser_patches_installation",
+      "name": "rebrowser-patches Installation",
+      "success": false,
+      "details": {
+        "packageCheck": {
+          "hasPatching": false,
+          "error": "process is not defined"
+        },
+        "puppeteerCheck": {
+          "puppeteerAvailable": false,
+          "patchedMethods": []
+        },
+        "expectedMode": "addBinding",
+        "actualMode": "addBinding"
+      }
+    }
+  ]
+}

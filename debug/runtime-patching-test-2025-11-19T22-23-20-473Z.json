@@ -1,0 +1,13 @@
+{
+  "startTime": "2025-11-19T22:23:20.424Z",
+  "endTime": "2025-11-19T22:23:20.473Z",
+  "duration": 49,
+  "success": false,
+  "patchingMode": "addBinding",
+  "detectionAttempts": 0,
+  "errors": [
+    "Browser initialization failed: An `executablePath` or `channel` must be specified for `puppeteer-core`",
+    "Test execution failed: Browser initialization failed"
+  ],
+  "tests": []
+}

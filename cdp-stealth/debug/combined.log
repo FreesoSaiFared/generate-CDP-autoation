@@ -1,0 +1,28 @@
+{"argsCount":15,"chrome":"/usr/bin/google-chrome-stable","level":"info","message":"Launching stealth browser with configuration","runtimePatchingMode":"addBinding","service":"cdp-stealth","timestamp":"2025-11-19T20:45:05.647Z"}
+{"level":"info","message":"Stealth browser launched successfully","service":"cdp-stealth","timestamp":"2025-11-19T20:45:06.739Z"}
+{"level":"info","message":"Stealth verification screenshot taken","path":"/home/ned/generate-CDP-autoation/cdp-stealth/debug/stealth-verification-1763585107365.png","service":"cdp-stealth","timestamp":"2025-11-19T20:45:07.481Z"}
+{"level":"info","message":"Browser disconnected","service":"cdp-stealth","timestamp":"2025-11-19T20:45:07.557Z"}
+{"argsCount":15,"chrome":"/usr/bin/google-chrome-stable","level":"info","message":"Launching stealth browser with configuration","runtimePatchingMode":"addBinding","service":"cdp-stealth","timestamp":"2025-11-19T20:45:52.445Z"}
+{"level":"info","message":"Stealth browser launched successfully","service":"cdp-stealth","timestamp":"2025-11-19T20:45:52.992Z"}
+{"level":"info","message":"Stealth verification screenshot taken","path":"/home/ned/generate-CDP-autoation/cdp-stealth/debug/stealth-verification-1763585153455.png","service":"cdp-stealth","timestamp":"2025-11-19T20:45:53.592Z"}
+{"level":"info","message":"Browser disconnected","service":"cdp-stealth","timestamp":"2025-11-19T20:45:53.674Z"}
+{"argsCount":15,"chrome":"/usr/bin/google-chrome-stable","level":"info","message":"Launching stealth browser with configuration","runtimePatchingMode":"addBinding","service":"cdp-stealth","timestamp":"2025-11-19T20:46:14.445Z"}
+{"level":"info","message":"Stealth browser launched successfully","service":"cdp-stealth","timestamp":"2025-11-19T20:46:15.019Z"}
+{"level":"info","message":"Stealth verification screenshot taken","path":"/home/ned/generate-CDP-autoation/cdp-stealth/debug/stealth-verification-1763585175314.png","service":"cdp-stealth","timestamp":"2025-11-19T20:46:15.464Z"}
+{"level":"info","message":"Browser disconnected","service":"cdp-stealth","timestamp":"2025-11-19T20:46:15.566Z"}
+{"argsCount":15,"chrome":"/usr/bin/google-chrome-stable","level":"info","message":"Launching stealth browser with configuration","runtimePatchingMode":"addBinding","service":"cdp-stealth","timestamp":"2025-11-19T20:46:34.974Z"}
+{"level":"info","message":"Stealth browser launched successfully","service":"cdp-stealth","timestamp":"2025-11-19T20:46:35.376Z"}
+{"level":"info","message":"Stealth verification screenshot taken","path":"/home/ned/generate-CDP-autoation/cdp-stealth/debug/stealth-verification-1763585195514.png","service":"cdp-stealth","timestamp":"2025-11-19T20:46:35.610Z"}
+{"level":"info","message":"Browser disconnected","service":"cdp-stealth","timestamp":"2025-11-19T20:46:35.659Z"}
+{"argsCount":15,"chrome":"/usr/bin/google-chrome-stable","level":"info","message":"Launching stealth browser with configuration","runtimePatchingMode":"addBinding","service":"cdp-stealth","timestamp":"2025-11-19T20:46:45.773Z"}
+{"level":"info","message":"Stealth browser launched successfully","service":"cdp-stealth","timestamp":"2025-11-19T20:46:46.289Z"}
+{"level":"info","message":"Stealth verification screenshot taken","path":"/home/ned/generate-CDP-autoation/cdp-stealth/debug/stealth-verification-1763585206632.png","service":"cdp-stealth","timestamp":"2025-11-19T20:46:46.775Z"}
+{"level":"info","message":"Browser disconnected","service":"cdp-stealth","timestamp":"2025-11-19T20:46:46.852Z"}
+{"argsCount":15,"chrome":"/usr/bin/google-chrome-stable","level":"info","message":"Launching stealth browser with configuration","runtimePatchingMode":"addBinding","service":"cdp-stealth","timestamp":"2025-11-19T20:46:57.450Z"}
+{"level":"info","message":"Stealth browser launched successfully","service":"cdp-stealth","timestamp":"2025-11-19T20:46:57.941Z"}
+{"level":"info","message":"Stealth verification screenshot taken","path":"/home/ned/generate-CDP-autoation/cdp-stealth/debug/stealth-verification-1763585218225.png","service":"cdp-stealth","timestamp":"2025-11-19T20:46:58.348Z"}
+{"level":"info","message":"Browser disconnected","service":"cdp-stealth","timestamp":"2025-11-19T20:46:58.435Z"}
+{"argsCount":15,"chrome":"/usr/bin/google-chrome-stable","level":"info","message":"Launching stealth browser with configuration","runtimePatchingMode":"addBinding","service":"cdp-stealth","timestamp":"2025-11-19T20:47:13.659Z"}
+{"level":"info","message":"Stealth browser launched successfully","service":"cdp-stealth","timestamp":"2025-11-19T20:47:14.159Z"}
+{"level":"info","message":"Stealth verification screenshot taken","path":"/home/ned/generate-CDP-autoation/cdp-stealth/debug/stealth-verification-1763585234459.png","service":"cdp-stealth","timestamp":"2025-11-19T20:47:14.569Z"}
+{"level":"info","message":"Browser disconnected","service":"cdp-stealth","timestamp":"2025-11-19T20:47:14.644Z"}

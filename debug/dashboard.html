@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDP Automation Debug Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .status-bar {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.online { background: #4ade80; }
+        .status-dot.warning { background: #fbbf24; }
+        .status-dot.error { background: #ef4444; }
+        .status-dot.offline { background: #6b7280; }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #2d2d2d;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            color: #60a5fa;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            width: 24px;
+            height: 24px;
+            opacity: 0.7;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #2d2d2d;
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .metric-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .metric-value.good { color: #4ade80; }
+        .metric-value.warning { color: #fbbf24; }
+        .metric-value.error { color: #ef4444; }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #2d2d2d;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-fill.good { background: #4ade80; }
+        .progress-fill.warning { background: #fbbf24; }
+        .progress-fill.error { background: #ef4444; }
+
+        .chart-container {
+            height: 200px;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .log-container {
+            grid-column: 1 / -1;
+            background: #1a1a1a;
+            border: 1px solid #2d2d2d;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            padding: 10px;
+            border-left: 3px solid #2d2d2d;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .log-entry:hover {
+            background: #252525;
+            border-left-color: #60a5fa;
+        }
+
+        .log-entry.error {
+            border-left-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .log-entry.warning {
+            border-left-color: #fbbf24;
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .log-entry.info {
+            border-left-color: #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        .log-timestamp {
+            color: #6b7280;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        .log-level {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .log-level.error { background: #ef4444; color: white; }
+        .log-level.warning { background: #fbbf24; color: #1a1a1a; }
+        .log-level.info { background: #60a5fa; color: white; }
+
+        .controls {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #60a5fa;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #2d2d2d;
+            color: #e0e0e0;
+            border: 1px solid #4b5563;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+            transform: translateY(-1px);
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            border: 1px solid #2d2d2d;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #6b7280;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .close-btn:hover {
+            color: #e0e0e0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            background: #2d2d2d;
+            border: 1px solid #4b5563;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 10px;
+            background: #2d2d2d;
+            border: 1px solid #4b5563;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alert.info {
+            background: rgba(96, 165, 250, 0.1);
+            border: 1px solid #60a5fa;
+            color: #60a5fa;
+        }
+
+        .alert.warning {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid #fbbf24;
+            color: #fbbf24;
+        }
+
+        .alert.error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+
+        .alert.success {
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid #4ade80;
+            color: #4ade80;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid #2d2d2d;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .tab.active {
+            color: #60a5fa;
+            border-bottom-color: #60a5fa;
+        }
+
+        .tab:hover {
+            color: #e0e0e0;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .grid-2 {
+            grid-column: span 2;
+        }
+
+        .grid-3 {
+            grid-column: span 3;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 1200px) {
+            .dashboard {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+        }
+
+        .spinner {
+            border: 3px solid #2d2d2d;
+            border-top: 3px solid #60a5fa;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .text-muted {
+            color: #6b7280;
+        }
+
+        .text-success {
+            color: #4ade80;
+        }
+
+        .text-warning {
+            color: #fbbf24;
+        }
+
+        .text-error {
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔧 CDP Automation Debug Dashboard</h1>
+            <div class="status-bar">
+                <div class="status-indicator">
+                    <div class="status-dot online" id="connectionStatus"></div>
+                    <span id="connectionText">Connected</span>
+                </div>
+                <div class="status-indicator">
+                    <div class="status-dot" id="systemHealth"></div>
+                    <span id="healthText">System Healthy</span>
+                </div>
+                <div class="status-indicator">
+                    <span id="lastUpdate">Just now</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn btn-primary" onclick="startMonitoring()">
+                <span>▶</span> Start Monitoring
+            </button>
+            <button class="btn btn-secondary" onclick="stopMonitoring()">
+                <span>⏸</span> Stop Monitoring
+            </button>
+            <button class="btn btn-secondary" onclick="refreshData()">
+                <span>🔄</span> Refresh
+            </button>
+            <button class="btn btn-secondary" onclick="exportData()">
+                <span>📊</span> Export Data
+            </button>
+            <button class="btn btn-secondary" onclick="showSettings()">
+                <span>⚙️</span> Settings
+            </button>
+        </div>
+
+        <!-- System Metrics -->
+        <div class="card">
+            <h2>
+                <span class="card-icon">💻</span>
+                System Metrics
+            </h2>
+            <div class="metric">
+                <span class="metric-label">CPU Usage</span>
+                <span class="metric-value" id="cpuUsage">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="cpuProgress" style="width: 0%"></div>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Memory Usage</span>
+                <span class="metric-value" id="memoryUsage">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="memoryProgress" style="width: 0%"></div>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Disk Usage</span>
+                <span class="metric-value" id="diskUsage">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="diskProgress" style="width: 0%"></div>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Network Latency</span>
+                <span class="metric-value" id="networkLatency">0ms</span>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div class="card">
+            <h2>
+                <span class="card-icon">📈</span>
+                Performance Metrics
+            </h2>
+            <div class="metric">
+                <span class="metric-label">Active Sessions</span>
+                <span class="metric-value" id="activeSessions">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Success Rate</span>
+                <span class="metric-value" id="successRate">0%</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Avg Response Time</span>
+                <span class="metric-value" id="avgResponseTime">0ms</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Error Rate</span>
+                <span class="metric-value" id="errorRate">0%</span>
+            </div>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Error Analysis -->
+        <div class="card">
+            <h2>
+                <span class="card-icon">🚨</span>
+                Error Analysis
+            </h2>
+            <div class="metric">
+                <span class="metric-label">Total Errors</span>
+                <span class="metric-value" id="totalErrors">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Critical Errors</span>
+                <span class="metric-value text-error" id="criticalErrors">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Most Common Error</span>
+                <span class="metric-value" id="mostCommonError">None</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Error Trend</span>
+                <span class="metric-value" id="errorTrend">Stable</span>
+            </div>
+            <div class="chart-container">
+                <canvas id="errorChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Debug Sessions -->
+        <div class="card grid-2">
+            <h2>
+                <span class="card-icon">🔍</span>
+                Active Debug Sessions
+            </h2>
+            <div id="debugSessions">
+                <div class="text-muted">No active debug sessions</div>
+            </div>
+        </div>
+
+        <!-- Recent Logs -->
+        <div class="card full-width">
+            <h2>
+                <span class="card-icon">📝</span>
+                Recent Logs
+            </h2>
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('logs')">Logs</button>
+                <button class="tab" onclick="switchTab('errors')">Errors</button>
+                <button class="tab" onclick="switchTab('performance')">Performance</button>
+                <button class="tab" onclick="switchTab('debug')">Debug</button>
+            </div>
+            <div id="logContent" class="tab-content active">
+                <div id="logContainer">
+                    <div class="text-muted">Waiting for logs...</div>
+                </div>
+            </div>
+            <div id="errorContent" class="tab-content">
+                <div id="errorContainer">
+                    <div class="text-muted">No errors to display</div>
+                </div>
+            </div>
+            <div id="performanceContent" class="tab-content">
+                <div id="performanceContainer">
+                    <div class="text-muted">No performance data available</div>
+                </div>
+            </div>
+            <div id="debugContent" class="tab-content">
+                <div id="debugContainer">
+                    <div class="text-muted">No debug sessions to display</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Dashboard Settings</h3>
+                <button class="close-btn" onclick="closeSettings()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label">WebSocket URL</label>
+                <input type="text" class="form-input" id="wsUrl" value="ws://localhost:3002">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Refresh Interval (seconds)</label>
+                <input type="number" class="form-input" id="refreshInterval" value="5" min="1" max="60">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Max Log Entries</label>
+                <input type="number" class="form-input" id="maxLogEntries" value="100" min="10" max="1000">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Theme</label>
+                <select class="form-select" id="theme">
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+                <button class="btn btn-secondary" onclick="closeSettings()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Global variables
+        let ws = null;
+        let reconnectInterval = null;
+        let charts = {};
+        let currentTab = 'logs';
+        let settings = {
+            wsUrl: 'ws://localhost:3002',
+            refreshInterval: 5000,
+            maxLogEntries: 100,
+            theme: 'dark'
+        };
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSettings();
+            initializeCharts();
+            connectWebSocket();
+            startDataRefresh();
+        });
+
+        // WebSocket connection
+        function connectWebSocket() {
+            try {
+                ws = new WebSocket(settings.wsUrl);
+                
+                ws.onopen = function() {
+                    console.log('WebSocket connected');
+                    updateConnectionStatus(true);
+                    if (reconnectInterval) {
+                        clearInterval(reconnectInterval);
+                        reconnectInterval = null;
+                    }
+                };
+                
+                ws.onmessage = function(event) {
+                    handleWebSocketMessage(JSON.parse(event.data));
+                };
+                
+                ws.onclose = function() {
+                    console.log('WebSocket disconnected');
+                    updateConnectionStatus(false);
+                    scheduleReconnect();
+                };
+                
+                ws.onerror = function(error) {
+                    console.error('WebSocket error:', error);
+                    updateConnectionStatus(false);
+                };
+                
+            } catch (error) {
+                console.error('Failed to connect WebSocket:', error);
+                updateConnectionStatus(false);
+            }
+        }
+
+        function scheduleReconnect() {
+            if (!reconnectInterval) {
+                reconnectInterval = setInterval(function() {
+                    console.log('Attempting to reconnect...');
+                    connectWebSocket();
+                }, 5000);
+            }
+        }
+
+        function handleWebSocketMessage(data) {
+            switch(data.type) {
+                case 'system_metrics':
+                    updateSystemMetrics(data.payload);
+                    break;
+                case 'performance_metrics':
+                    updatePerformanceMetrics(data.payload);
+                    break;
+                case 'error_analysis':
+                    updateErrorAnalysis(data.payload);
+                    break;
+                case 'debug_sessions':
+                    updateDebugSessions(data.payload);
+                    break;
+                case 'log_entry':
+                    addLogEntry(data.payload);
+                    break;
+                case 'alert':
+                    showAlert(data.payload);
+                    break;
+            }
+        }
+
+        // Update functions
+        function updateSystemMetrics(metrics) {
+            updateMetric('cpuUsage', metrics.cpu, '%');
+            updateMetric('memoryUsage', metrics.memory, '%');
+            updateMetric('diskUsage', metrics.disk, '%');
+            updateMetric('networkLatency', metrics.latency, 'ms');
+            updateProgressBar('cpuProgress', metrics.cpu);
+            updateProgressBar('memoryProgress', metrics.memory);
+            updateProgressBar('diskProgress', metrics.disk);
+            updateLastUpdate();
+        }
+
+        function updatePerformanceMetrics(metrics) {
+            updateMetric('activeSessions', metrics.activeSessions);
+            updateMetric('successRate', metrics.successRate, '%');
+            updateMetric('avgResponseTime', metrics.avgResponseTime, 'ms');
+            updateMetric('errorRate', metrics.errorRate, '%');
+            updatePerformanceChart(metrics);
+            updateLastUpdate();
+        }
+
+        function updateErrorAnalysis(analysis) {
+            updateMetric('totalErrors', analysis.totalErrors);
+            updateMetric('criticalErrors', analysis.criticalErrors);
+            updateMetric('mostCommonError', analysis.mostCommonError);
+            updateMetric('errorTrend', analysis.errorTrend);
+            updateErrorChart(analysis);
+            updateLastUpdate();
+        }
+
+        function updateDebugSessions(sessions) {
+            const container = document.getElementById('debugSessions');
+            if (sessions.length === 0) {
+                container.innerHTML = '<div class="text-muted">No active debug sessions</div>';
+                return;
+            }
+
+            let html = '';
+            sessions.forEach(session => {
+                const statusClass = session.resolved ? 'text-success' : 
+                                       session.attempts >= 5 ? 'text-error' : 'text-warning';
+                html += `
+                    <div style="padding: 10px; border-bottom: 1px solid #2d2d2d;">
+                        <div><strong>${session.taskDescription}</strong></div>
+                        <div style="font-size: 0.9rem; color: #6b7280;">
+                            Modality: ${session.modality} | 
+                            Attempts: ${session.attempts} | 
+                            Status: <span class="${statusClass}">${session.resolved ? 'Resolved' : 'In Progress'}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function updateMetric(id, value, suffix = '') {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = value + suffix;
+                
+                // Add color coding based on value
+                element.className = 'metric-value';
+                if (id.includes('Usage') || id.includes('Rate')) {
+                    const numValue = parseFloat(value);
+                    if (numValue > 80) {
+                        element.classList.add('error');
+                    } else if (numValue > 60) {
+                        element.classList.add('warning');
+                    } else {
+                        element.classList.add('good');
+                    }
+                }
+            }
+        }
+
+        function updateProgressBar(id, percentage) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.style.width = percentage + '%';
+                element.className = 'progress-fill';
+                if (percentage > 80) {
+                    element.classList.add('error');
+                } else if (percentage > 60) {
+                    element.classList.add('warning');
+                } else {
+                    element.classList.add('good');
+                }
+            }
+        }
+
+        function updateConnectionStatus(connected) {
+            const statusDot = document.getElementById('connectionStatus');
+            const statusText = document.getElementById('connectionText');
+            
+            if (connected) {
+                statusDot.className = 'status-dot online';
+                statusText.textContent = 'Connected';
+            } else {
+                statusDot.className = 'status-dot error';
+                statusText.textContent = 'Disconnected';
+            }
+        }
+
+        function updateLastUpdate() {
+            const element = document.getElementById('lastUpdate');
+            if (element) {
+                element.textContent = 'Just now';
+            }
+        }
+
+        function addLogEntry(entry) {
+            if (currentTab !== 'logs') return;
+            
+            const container = document.getElementById('logContainer');
+            const logDiv = document.createElement('div');
+            logDiv.className = `log-entry ${entry.level}`;
+            
+            const timestamp = new Date(entry.timestamp).toLocaleTimeString();
+            logDiv.innerHTML = `
+                <div class="log-timestamp">${timestamp}</div>
+                <div class="log-level ${entry.level}">${entry.level.toUpperCase()}</div>
+                <div>${entry.message}</div>
+            `;
+            
+            container.insertBefore(logDiv, container.firstChild);
+            
+            // Limit log entries
+            const entries = container.children;
+            if (entries.length > settings.maxLogEntries) {
+                for (let i = settings.maxLogEntries; i < entries.length; i++) {
+                    entries[i].remove();
+                }
+            }
+        }
+
+        function showAlert(alert) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert ${alert.type}`;
+            alertDiv.innerHTML = `
+                <span>${alert.type.toUpperCase()}: ${alert.message}</span>
+                <button class="close-btn" onclick="this.parentElement.remove()">&times;</button>
+            `;
+            
+            // Add to top of dashboard
+            const dashboard = document.querySelector('.dashboard');
+            dashboard.insertBefore(alertDiv, dashboard.children[1]);
+            
+            // Auto-remove after 10 seconds
+            setTimeout(() => {
+                if (alertDiv.parentElement) {
+                    alertDiv.remove();
+                }
+            }, 10000);
+        }
+
+        // Chart functions
+        function initializeCharts() {
+            const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+            charts.performance = new Chart(performanceCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Response Time',
+                        data: [],
+                        borderColor: '#60a5fa',
+                        backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#2d2d2d' },
+                            ticks: { color: '#9ca3af' }
+                        },
+                        x: {
+                            grid: { color: '#2d2d2d' },
+                            ticks: { color: '#9ca3af' }
+                        }
+                    }
+                }
+            });
+
+            const errorCtx = document.getElementById('errorChart').getContext('2d');
+            charts.errors = new Chart(errorCtx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Error Count',
+                        data: [],
+                        backgroundColor: '#ef4444',
+                        borderColor: '#dc2626',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: '#2d2d2d' },
+                            ticks: { color: '#9ca3af' }
+                        },
+                        x: {
+                            grid: { color: '#2d2d2d' },
+                            ticks: { color: '#9ca3af' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updatePerformanceChart(metrics) {
+            if (!charts.performance) return;
+            
+            const chart = charts.performance;
+            const now = new Date().toLocaleTimeString();
+            
+            // Add new data point
+            chart.data.labels.push(now);
+            chart.data.datasets[0].data.push(metrics.avgResponseTime);
+            
+            // Keep only last 20 data points
+            if (chart.data.labels.length > 20) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+            
+            chart.update('none');
+        }
+
+        function updateErrorChart(analysis) {
+            if (!charts.errors) return;
+            
+            const chart = charts.errors;
+            const categories = analysis.errorCategories || {};
+            
+            chart.data.labels = Object.keys(categories);
+            chart.data.datasets[0].data = Object.values(categories);
+            
+            chart.update();
+        }
+
+        // Tab functions
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName + 'Content').classList.add('active');
+            
+            currentTab = tabName;
+        }
+
+        // Settings functions
+        function showSettings() {
+            document.getElementById('settingsModal').classList.add('active');
+        }
+
+        function closeSettings() {
+            document.getElementById('settingsModal').classList.remove('active');
+        }
+
+        function saveSettings() {
+            settings.wsUrl = document.getElementById('wsUrl').value;
+            settings.refreshInterval = parseInt(document.getElementById('refreshInterval').value) * 1000;
+            settings.maxLogEntries = parseInt(document.getElementById('maxLogEntries').value);
+            settings.theme = document.getElementById('theme').value;
+            
+            localStorage.setItem('dashboardSettings', JSON.stringify(settings));
+            
+            // Reconnect WebSocket with new URL
+            if (ws) {
+                ws.close();
+            }
+            connectWebSocket();
+            
+            closeSettings();
+        }
+
+        function loadSettings() {
+            const saved = localStorage.getItem('dashboardSettings');
+            if (saved) {
+                settings = { ...settings, ...JSON.parse(saved) };
+                
+                document.getElementById('wsUrl').value = settings.wsUrl;
+                document.getElementById('refreshInterval').value = settings.refreshInterval / 1000;
+                document.getElementById('maxLogEntries').value = settings.maxLogEntries;
+                document.getElementById('theme').value = settings.theme;
+            }
+        }
+
+        // Control functions
+        function startMonitoring() {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: 'start_monitoring' }));
+            }
+        }
+
+        function stopMonitoring() {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: 'stop_monitoring' }));
+            }
+        }
+
+        function refreshData() {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: 'refresh_data' }));
+            }
+        }
+
+        function exportData() {
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: 'export_data' }));
+            }
+        }
+
+        function startDataRefresh() {
+            setInterval(() => {
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    ws.send(JSON.stringify({ type: 'get_status' }));
+                }
+            }, settings.refreshInterval);
+        }
+
+        // Close settings modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('settingsModal');
+            if (event.target === modal) {
+                closeSettings();
+            }
+        }
+    </script>
+</body>
+</html>

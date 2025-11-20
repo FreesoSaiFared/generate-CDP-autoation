@@ -1,0 +1,26 @@
+{"timestamp":"2025-11-19T23:26:23.834Z","level":"INFO","message":"Test started: 2025-11-19T23:26:23.826Z","data":null}
+{"timestamp":"2025-11-19T23:26:23.834Z","level":"ERROR","message":"Failed to load workflow-scenarios results","data":{}}
+{"timestamp":"2025-11-19T23:26:23.835Z","level":"ERROR","message":"Failed to load test-integration results","data":{}}
+{"timestamp":"2025-11-19T23:26:23.835Z","level":"ERROR","message":"Failed to load validate-system results","data":{}}
+{"timestamp":"2025-11-19T23:26:23.836Z","level":"ERROR","message":"Failed to load benchmark-performance results","data":{}}
+{"timestamp":"2025-11-19T23:26:23.836Z","level":"ERROR","message":"Failed to load validate-success-criteria results","data":{}}
+{"timestamp":"2025-11-19T23:26:23.836Z","level":"ERROR","message":"Failed to load measure-performance-metrics results","data":{}}
+{"timestamp":"2025-11-19T23:26:23.836Z","level":"INFO","message":"Step: Processing and aggregating test results...","data":null}
+{"timestamp":"2025-11-19T23:26:23.836Z","level":"INFO","message":"Step: Generating summary statistics...","data":null}
+{"timestamp":"2025-11-19T23:26:23.836Z","level":"INFO","message":"Step: Summary statistics generated","data":null}
+{"timestamp":"2025-11-19T23:26:23.837Z","level":"INFO","message":"Step: Generating executive summary...","data":null}
+{"timestamp":"2025-11-19T23:26:23.837Z","level":"INFO","message":"Step: Executive summary generated","data":null}
+{"timestamp":"2025-11-19T23:26:23.837Z","level":"INFO","message":"Step: Generating detailed analysis...","data":null}
+{"timestamp":"2025-11-19T23:26:23.838Z","level":"INFO","message":"Step: Detailed analysis generated","data":null}
+{"timestamp":"2025-11-19T23:26:23.838Z","level":"INFO","message":"Step: Generating performance analysis...","data":null}
+{"timestamp":"2025-11-19T23:26:23.838Z","level":"INFO","message":"Step: Performance analysis generated","data":null}
+{"timestamp":"2025-11-19T23:26:23.838Z","level":"INFO","message":"Step: Generating recommendations...","data":null}
+{"timestamp":"2025-11-19T23:26:23.838Z","level":"INFO","message":"Step: Recommendations generated","data":null}
+{"timestamp":"2025-11-19T23:26:23.838Z","level":"INFO","message":"Step: Generating trend analysis...","data":null}
+{"timestamp":"2025-11-19T23:26:23.838Z","level":"INFO","message":"Step: Trend analysis generated","data":null}
+{"timestamp":"2025-11-19T23:26:23.838Z","level":"INFO","message":"Step: Generating charts data...","data":null}
+{"timestamp":"2025-11-19T23:26:23.838Z","level":"INFO","message":"Step: Charts data generated","data":null}
+{"timestamp":"2025-11-19T23:26:23.839Z","level":"INFO","message":"Step: Generating report files...","data":null}
+{"timestamp":"2025-11-19T23:26:23.861Z","level":"INFO","message":"Step: Generated HTML report: comprehensive-test-report-2025-11-19T23-26-23-839Z.html","data":null}
+{"timestamp":"2025-11-19T23:26:23.861Z","level":"INFO","message":"Step: Generated JSON report: comprehensive-test-report-2025-11-19T23-26-23-839Z.json","data":null}
+{"timestamp":"2025-11-19T23:26:23.862Z","level":"INFO","message":"Step: Generated TEXT report: comprehensive-test-report-2025-11-19T23-26-23-839Z.txt","data":null}

@@ -1,0 +1,113 @@
+# mitmproxy configuration for CDP automation system
+# This configuration optimizes mitmproxy for HAR export and performance monitoring
+
+# Network settings
+listen_host: 127.0.0.1
+listen_port: 8080
+mode: regular
+
+# HAR export settings
+flow_detail: 3
+hardump: ./network_requests.har
+
+# Performance tuning parameters
+connection_timeout: 60
+read_limit: 1024000
+write_limit: 1024000
+
+# SSL/TLS settings
+ssl_insecure: false
+certs: []
+ssl_version_client: secure
+
+# Stream settings
+stream_large_bodies: 1024000
+
+# Logging configuration
+verbose: false
+console_eventlog_verbosity: error
+console_eventlog_flows: 0
+
+# Addon settings
+# record_addon.py will be loaded via command line
+
+# Proxy behavior
+anticache: false
+anticomp: false
+showhost: false
+
+# Request/response modification
+setheaders: []
+replace: []
+
+# Upstream proxy (if needed)
+# upstream_cert: false
+# upstream_auth: ""
+
+# WebSocket settings
+websocket: true
+
+# HTTP/2 settings
+http2: true
+
+# DNS settings
+# dns_server: []
+
+# Connection limits
+# connection_strategy: lazy
+
+# Script options (for our addon)
+record_level: 3
+
+# Output settings
+save_stream_file: ""
+save_stream_filter: ""
+
+# Client replay settings
+# client_replay_concurrency: 1
+# client_replay_kill: true
+
+# Server replay settings
+# server_replay_concurrency: 1
+# server_replay_kill_extra: true
+# server_replay_nopop: false
+# server_replay_refresh: true
+# server_replay_use_headers: ["etag", "if-none-match", "last-modified"]
+
+# Map remote settings
+# map_remote: []
+
+# Map local settings
+# map_local: []
+
+# Sticky cookie settings
+# stickycookie: ""
+
+# Sticky auth settings
+# stickyauth: ""
+
+# Console settings
+# console_focus_follow: true
+# console_palette: dark
+# console_palette_transparent: false
+
+# View settings
+# view_filter: []
+# view_order: "time"
+# view_order_reversed: false
+
+# Export settings
+# export_options: []
+
+# Intercept settings
+# intercept: ""
+# intercept_active: false
+
+# Eventlog settings
+# eventlog: ""
+
+# History settings
+# history_size: 10000
+
+# Keep host header settings
+# keep_host_header: false

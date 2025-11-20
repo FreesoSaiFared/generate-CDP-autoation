@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-11-19T20:46:35.507Z",
+  "summary": {
+    "total": 7,
+    "passed": 6,
+    "failed": 1,
+    "successRate": "86%"
+  },
+  "details": [
+    {
+      "name": "navigator.webdriver is undefined",
+      "passed": true,
+      "details": "navigator.webdriver is undefined"
+    },
+    {
+      "name": "No automation switches present",
+      "passed": true,
+      "details": "No automation indicators found"
+    },
+    {
+      "name": "chrome.runtime.id is undefined",
+      "passed": false,
+      "details": "chrome.runtime.id is null"
+    },
+    {
+      "name": "window.webdriver is undefined",
+      "passed": true,
+      "details": "window.webdriver is undefined"
+    },
+    {
+      "name": "Permissions API behavior",
+      "passed": true,
+      "details": "Permissions API behaves normally (granted)"
+    },
+    {
+      "name": "WebGL fingerprinting protection",
+      "passed": true,
+      "details": "WebGL fingerprinting protected (Intel Inc., Intel Iris OpenGL Engine)"
+    },
+    {
+      "name": "User agent consistency",
+      "passed": true,
+      "details": "User agent appears normal: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36..."
+    }
+  ]
+}

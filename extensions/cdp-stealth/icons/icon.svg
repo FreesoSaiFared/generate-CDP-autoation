@@ -1,0 +1,35 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a73e8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad1)" />
+  
+  <!-- Browser window frame -->
+  <rect x="24" y="32" width="80" height="64" rx="4" fill="none" stroke="white" stroke-width="2" />
+  
+  <!-- Browser window header -->
+  <rect x="24" y="32" width="80" height="16" rx="4" fill="white" opacity="0.3" />
+  
+  <!-- Browser dots -->
+  <circle cx="32" cy="40" r="2" fill="white" />
+  <circle cx="40" cy="40" r="2" fill="white" />
+  <circle cx="48" cy="40" r="2" fill="white" />
+  
+  <!-- CDP connection lines -->
+  <path d="M 64 48 L 64 80" stroke="white" stroke-width="2" stroke-dasharray="2,2" />
+  <circle cx="64" cy="48" r="3" fill="white" />
+  <circle cx="64" cy="80" r="3" fill="white" />
+  
+  <!-- Stealth eye symbol -->
+  <ellipse cx="64" cy="64" rx="12" ry="8" fill="none" stroke="white" stroke-width="2" />
+  <circle cx="64" cy="64" r="4" fill="white" />
+  
+  <!-- Data arrows -->
+  <path d="M 32 56 L 40 56 L 38 54 M 40 56 L 38 58" stroke="white" stroke-width="1.5" fill="none" />
+  <path d="M 88 72 L 96 72 L 94 70 M 96 72 L 94 74" stroke="white" stroke-width="1.5" fill="none" />
+</svg>
