@@ -12,7 +12,7 @@ Get up and running with the CDP Automation System in 5 minutes.
 ## One-Command Installation
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/your-org/cdp-automation/main/scripts/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/FreesoSaiFared/cdp-automation/main/scripts/install.sh | bash
 ```
 
 ## Manual Installation (5 minutes)

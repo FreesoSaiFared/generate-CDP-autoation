@@ -1,0 +1,69 @@
+## The transistor: 75 years since the famed Nokia Bell Labs invention changed the world
+
+by [Aron Heller](https://www.nokia.com/people/aron-heller/)
+
+15 Dec 2022
+
+![Close-up of the first point-contact transistor invented at Bell Labs in 1947. The device is mounted on a clear plastic stand, showing its small size and intricate wire structure. It sits on a white pedestal against a blue background, highlighting its historical significance in electronics.](https://www.nokia.com/sites/default/files/2025-01/transistor-75th-lead-image_1920x1080_center_0.jpg)
+
+As with most revolutionary inventions, John Bardeen and Walter Brattain weren’t seeking to rewrite history. The pair of American physicists were merely aiming to improve telephone calls by developing a smaller electrical device that consumed less power than vacuum tubes.
+
+But 75 years ago, on Dec. 16, 1947, they made a breakthrough that ushered in a new era, one that revolutionized electronics by placing it into the hands of the masses. Their discovery upended nearly every industry and forever changed the way we live.
+
+Working under the supervision of William Shockley, Bardeen and Brattain were experimenting with solid state materials on the fourth floor of Building 1 at the Bell Labs headquarters in Murray Hill, New Jersey when, using a spring, they pressed two closely spaced gold contacts against a small block of germanium that served as a semiconductor.
+
+The result was the point-contact transistor – a circuit that could act both as a switch and an amplifier and whose future radical miniaturization essentially enabled all the electronics that have since been created.
+
+## The “Big Bang” of electronics
+
+![Side-by-side comparison of transistor history. Left: Black and white photo of the first point-contact transistor (1947) with ruler for scale. Right: Color close-up of an early transistor or semiconductor crystal with attached wires.](https://www.nokia.com/sites/default/files/styles/inline_image_mobile/public/inline-images/transistor-75th-big-bang-of-electronics-1920x1080.jpg.webp)  
+
+In its [nearly 100 years](https://www.nokia.com/bell-labs/about/history/), Nokia Bell Labs has made groundbreaking innovations in [radio astronomy](https://www.nokia.com/bell-labs/about/history/innovation-stories/confirming-big-bang/), [information theory](https://belllabs-site-claude-shannon.s3-website-us-east-1.amazonaws.com/) and cellular communications, the last of which, incidentally, was also conceived at Bell Labs 75 years ago.
+
+Its researchers have also created the solar cell, the laser, the seminal [Telstar satellite](https://www.nokia.com/blog/how-nokia-bell-labs-found-its-place-in-space/), the [charge-coupled device](https://www.nokia.com/bell-labs/about/history/innovation-stories/charge-coupled-device/) and the [Unix](https://www.nokia.com/bell-labs/about/history/innovation-stories/50-years-unix/) computer operating system that paved a path to the internet. But perhaps no creation has shaped science and society more than the transistor. It became the foundation of nearly all that followed.
+
+The transistor is widely considered one of the greatest inventions of the 20th century because the introduction of semiconductors sparked a revolution in electronics on par with that of steel and steam engines in the Industrial Revolution.
+
+It’s hard to underplay the significance of the moment. No less an authority than [Bill Gates once quipped](https://www.leadershipnow.com/leadingblog/2012/06/innovation_at_bell_labs.html#:~:text=BILL%20GATES%20once%20remarked%2C%20%E2%80%9CMy,the%20technology%20we%20have%20today.) that his “first stop on any time-travel expedition would be Bell Labs in December 1947.”
+
+At the time, scientists were just 50 years removed from the discovery of the electron, which created the field of electronics. Transistors led to integrated circuits. They ushered in the Information Age, making possible the development of almost every modern electronic device, from modern radios and telephones to calculators and computers.
+
+The transistor’s small size, low heat generation, high reliability and low power consumption made possible a breakthrough in the miniaturization of complex circuitry.
+
+“It evolved a primitive device to one that can be made super small,” explained Ed Eckert, Nokia Bell Labs’ corporate archivist. “The vacuum tube had its limitations: its size, it used lots of power, it was fragile, it created lots of heat. So, the transistor was the answer to all these problems.”
+
+## Smaller is better
+
+![A newspaper clipping celebrating 75 years of the transistor. Timeline shows invention in 1947 at Bell Labs, Nobel Prize win, and evolution from vacuum tubes to modern microchips. Highlights transistor's impact on communications, computing, and consumer electronics.](https://www.nokia.com/sites/default/files/styles/inline_image_mobile/public/inline-images/transistor-75th-smaller-is-better_1920x1080_center.jpg.webp)  
+
+What a transistor essentially allowed was to take a light bulb, for example, and turn it into a tiny spec that fit on a chip. The “transistorizing” effect made computers mobile, turning them from massive contraptions the size of rooms into something that could fit into an aircraft and fly a spacecraft to the Moon. Further miniaturization led to personal computers that could fit first on our desks, then on our laps and finally in our pockets.
+
+The pace of its progress was staggering. For decades to come, the number of transistors that could fit on a silicon chip roughly doubled every two years, an observation that famously came to be known as [Moore’s Law](https://en.wikipedia.org/wiki/Moore%27s_law).
+
+The result of that exponential growth is such that today [some 30 million transistors can fit on the head of a pin](https://www.intel.com/pressroom/kits/45nm/Intel45nmFunFacts_FINAL.pdf). Today’s transistors are measured in nanometers. For the sake of comparison, a human hair is 90,000 nanometers wide.
+
+For even further perspective, today’s average smart phone is comprised of about 460 billion transistors.
+
+“If you were using vacuum tubes instead of these transistors, this cell phone would be ten times the size of the Empire State Building,” Eckert said. “Obviously this is something a vacuum tube could never do, so the transistor went far beyond its original intent purpose.”
+
+The transistor’s first application was as a card translator, an electromagnetic switching unit that helped extend long-distance phone calls. Another early application was as a phone amplifier for use in noisy locations and by the hearing-impaired. Then came actual [hearing aids](https://hearingaidmuseum.com/gallery/Transistor%20\(Body\)/Sonotone/info/sonotone1010.htm) and, famously, the [transistor radio](https://www.retrowow.co.uk/retro_collectibles/60s/tranistor_radio.html).
+
+But almost immediately researchers discovered it could upend industries far beyond telecom, from automobiles to health care, construction to space exploration, and perhaps most of all computers.
+
+“It allows you to do things on a massive scale. When it comes to digital computation, the more transistors you have, the faster it works,” said Eckert.
+
+## A lasting legacy
+
+![Bardeen, Brattain and Shockley](https://www.nokia.com/sites/default/files/styles/inline_image_mobile/public/inline-images/transistor-75th-lasting-legacy.original.jpg.webp)  
+
+Bardeen, Brattain and Shockley were jointly awarded the [1956 Nobel Prize in Physics](https://www.nokia.com/bell-labs/about/awards/1956-nobel-prize-physics/) for their research on semiconductors and their “discovery of the transistor effect." It became the cornerstone of a golden era of scientific discoveries and developments at Bell Labs that resulted in [nine Nobel Prizes](https://www.nokia.com/bell-labs/about/awards/) and five Turing Awards. Bardeen went on to become the only person to be awarded the Nobel Prize in Physics twice, as he also shared the 1972 award for work on a fundamental theory of conventional superconductivity known as BCS theory.
+
+Today, 75 years after Bardeen and Brattain’s discovery, the transistor remains at the center of much of Nokia Bell Labs innovation. Semiconductor research is defining new optical transmission and wireless technologies. Our [III-V lab](https://www.nokia.com/bell-labs/collaboration-opportunities/iii-v-lab/), for example, specifically builds new semiconductors that will eventually make future generations of networks.
+
+New innovations in the metaverse, robotics, industrial automation and artificial intelligence are built in part on a foundation of such new semiconductor innovations. What was born with the transistor has evolved into the world of quantum computing and beyond.
+
+The original transistor is still proudly featured behind a glass encasement in the lobby of the Nokia Bell Labs campus in Murray Hill. The world’s first working solid-state amplifier spawned several industries, and that small slab of germanium introduced the power of semiconductors. Silicon was later found to be the most effective, leading to the famous moniker of a certain California valley that came to define an industry.
+
+## About Aron Heller
+
+Aron is an accomplished writer, storyteller and broadcaster. As lead writer for Bell Labs, he tells the story of technology and the people behind it. He previously filled a similar role for Nokia's Cloud and Network Services business group. During his lengthy journalism career, Aron was the long-time Jerusalem correspondent for The Associated Press and an adjunct journalism professor. He’s covered ten Israeli elections, four Mideast wars, dozens of other major world events and has been dispatched to assignments across five continents. A frequent on-air and on-camera contributor, he's also previously reported for the Ottawa Citizen, NBC News and Haaretz. He also hosts podcasts and delivers play-by-play broadcasting for live sporting events.

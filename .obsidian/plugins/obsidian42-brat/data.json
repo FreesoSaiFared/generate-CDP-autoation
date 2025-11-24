@@ -1,0 +1,33 @@
+{
+  "pluginList": [
+    "mdelobelle/metadatamenu",
+    "TfTHacker/obsidian42-strange-new-worlds",
+    "TfTHacker/Obsidian-WordNet"
+  ],
+  "pluginSubListFrozenVersion": [
+    {
+      "repo": "mdelobelle/metadatamenu",
+      "version": "latest"
+    },
+    {
+      "repo": "TfTHacker/obsidian42-strange-new-worlds",
+      "version": "latest"
+    },
+    {
+      "repo": "TfTHacker/Obsidian-WordNet",
+      "version": "latest"
+    }
+  ],
+  "themesList": [],
+  "updateAtStartup": true,
+  "updateThemesAtStartup": true,
+  "enableAfterInstall": true,
+  "loggingEnabled": false,
+  "loggingPath": "BRAT-log",
+  "loggingVerboseEnabled": false,
+  "debuggingMode": false,
+  "notificationsEnabled": true,
+  "personalAccessToken": "",
+  "selectLatestPluginVersionByDefault": false,
+  "allowIncompatiblePlugins": false
+}
